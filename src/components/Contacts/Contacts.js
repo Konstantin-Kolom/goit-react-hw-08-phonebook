@@ -33,7 +33,7 @@ function Contacts({ open, stateApp }) {
       {isError && <h2>Youre phonebook not found!</h2>}
       {data && (
         <ul className={s.ContactsList}>
-          {data.map(({ id, name, number }) => (
+          {stateApp.map(({ id, name, number }) => (
             <li className={s.ContactsItem} key={id} id={id}>
               <p>{name}</p>
               <p>{number}</p>
