@@ -1,0 +1,33 @@
+.conteiner {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #525f96;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
+  background-color: #d9e8f3;
+}
+
+.FilterLabel {
+  color: #525f96;
+}
+
+.FilterTitle {
+  font-weight: 600;
+  color: #525f96;
+  margin-bottom: 10px;
+}
+
+.iconFilter {
+  margin-right: 10px;
+}
+
+.iconFilter svg {
+  width: 15px;
+  height: 15px;
+}
+
+.inputFilter {
+  margin-left: 20px;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  min-width: 300px;
+}
