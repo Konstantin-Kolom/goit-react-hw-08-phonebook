@@ -1,6 +1,8 @@
 // import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import s from './css/HomePage.module.css';
+<Link></Link>;
 
 export default function HomePageViews() {
   return (
@@ -11,12 +13,17 @@ export default function HomePageViews() {
       </div>
       <div className={s.box}>
         <p className={s.box_text}>Please enter your login or register to use the application:</p>
-        <button type="button" className={s.box_btn}>
-          Registration
-        </button>
-        <button type="button" className={s.box_btn}>
-          Login{' '}
-        </button>
+        <Link to="/register">
+          <button type="button" className={s.box_btn}>
+            Registration
+          </button>
+        </Link>
+        <Link to="/login">
+          <button type="button" className={s.box_btn}>
+            Login{' '}
+          </button>
+        </Link>
+        ;
       </div>
     </section>
   );

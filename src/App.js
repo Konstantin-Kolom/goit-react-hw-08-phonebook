@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import { Navigation } from './components/Novigation/Novigation';
 // import UserMenu from './components/UserMenu/UserMenu';
 import HomePageViews from './views/HomePageViews';
+import RegisterViews from './views/RegisterViews';
 
 import Section from './components/Section/Section';
 import DataRecordForm from './components/DataRecordForm/DataRecordForm';
@@ -24,11 +25,13 @@ function App() {
       </header>
 
       <Switch>
-        <Route exactpath="/">
+        <Route exact path="/">
           <HomePageViews />
         </Route>
 
-        {/* <Route path="/register"></Route> */}
+        <Route path="/register">
+          <RegisterViews />
+        </Route>
 
         {/* <Route path="/login"></Route> */}
 
