@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-hot-toast';
 
 import phoneAticons from '../../redux/phonebook/phonebookActions';
@@ -8,9 +8,14 @@ import { BsFillPersonPlusFill } from '../../../node_modules/react-icons/bs';
 import { useCreateContactMutation } from '../../redux/phonebook/phonebookSlice';
 import s from './DataRecordForm.module.css';
 
-function DataRecordForm({ items, addContact }) {
+export default function DataRecordForm() {
   const [name, SetName] = useState('');
   const [number, SetNumber] = useState('');
+
+  const items = useSelector(state => state.contacts.items);
+  const dispatch = useDispatch();
+
+  const addContact = data => dispatch(phoneAticons.addContact(data));
 
   const [createContact, { isLoading }] = useCreateContactMutation();
 
@@ -84,13 +89,3 @@ function DataRecordForm({ items, addContact }) {
     </form>
   );
 }
-
-const mapStateToProps = state => {
-  return state.contacts;
-};
-
-const mapDispatchToProps = dispatch => ({
-  addContact: data => dispatch(phoneAticons.addContact(data)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(DataRecordForm);
