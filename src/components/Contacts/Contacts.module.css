@@ -26,10 +26,20 @@
   border: 1px solid;
 
   cursor: pointer;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .BtnDeletContact:hover {
-  color: #ffff;
-  background-color: #ebc548;
+  color: rgb(207, 40, 40);
+  background-color: #e9daa8;
   border: 2px solid;
+}
+
+.BtnDeletContactSvg {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -67,7 +67,7 @@ export default function Contacts() {
                 type="button"
                 onClick={() => hendleClickDelet(id)}
               >
-                <span>
+                <span className={s.BtnDeletContactSvg}>
                   <MdDeleteForever />
                 </span>
                 <span>
