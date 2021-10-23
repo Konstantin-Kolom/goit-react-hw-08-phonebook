@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { SpinnerLoader } from '../Loader/Loader';
 import { toast } from 'react-hot-toast';
 
@@ -12,15 +12,37 @@ import {
 
 import s from './Contacts.module.css';
 
-function Contacts({ open, stateApp }) {
+export default function Contacts() {
+  const [stateApp, setStateApp] = useState([]);
+
+  const { items, filter } = useSelector(state => state.contacts);
+  const dispatch = useDispatch();
+
   const { data = [], isFetching, isError } = useGetContactsQuery();
   const [delContact] = useDeleteContactMutation();
 
+  const dispatchToProps = () => dispatch(phoneAticons.openBook(data));
+
+  const getVisibleContact = (allItems, filter) => {
+    const normalizeFilter = filter.toLowerCase();
+    return allItems.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
+  };
+
   useEffect(() => {
     if (data.length !== 0) {
-      open(data);
+      dispatchToProps();
+      setStateApp(data);
     }
-  }, [data, open]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
+
+  useEffect(() => {
+    const visibleContact = getVisibleContact(items, filter);
+
+    if (filter !== '') {
+      return setStateApp(visibleContact);
+    }
+  }, [filter, items]);
 
   function hendleClickDelet(id) {
     toast.success('Contact deleted!');
@@ -58,22 +80,3 @@ function Contacts({ open, stateApp }) {
     </>
   );
 }
-
-const getVisibleContact = (allContacts, filter) => {
-  const normalizeFilter = filter.toLowerCase();
-  return allContacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
-};
-
-const mapStateToProps = state => {
-  const { items, filter } = state.contacts;
-  const visibleContact = getVisibleContact(items, filter);
-  return {
-    stateApp: visibleContact,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  open: data => dispatch(phoneAticons.openBook(data)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Contacts);
