@@ -41,7 +41,10 @@ export default function Contacts() {
 
     if (filter !== '') {
       return setStateApp(visibleContact);
+    } else {
+      setStateApp(data);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, items]);
 
   function hendleClickDelet(id) {
@@ -77,6 +80,9 @@ export default function Contacts() {
         </ul>
       )}
       {data && data.length === 0 && <h2>Youre phonebook is empty !</h2>}
+      {filter !== '' && stateApp.length === 0 && (
+        <h2>There is no contact in the phone book - {filter}!</h2>
+      )}
     </>
   );
 }
