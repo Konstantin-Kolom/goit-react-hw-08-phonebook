@@ -1,0 +1,81 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-top: 52px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 38px 62px;
+  text-align: center;
+  /* height: 100vp; */
+  width: 1200px;
+  background-image: url(../../images/31972499-azul.jpg);
+}
+
+.title {
+  font-size: 64px;
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.text {
+  font-size: 48px;
+  /* color: #525f96; */
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.box {
+  /* display: inline-flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+}
+
+.box_text {
+  font-size: 32px;
+  text-shadow: 0 0 1em #fcf95c, 0 0 0.2em #fcf95c;
+  /* color: #2447e6; */
+}
+
+.box .box_btn {
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 25px;
+  margin: 0 15px 15px 0;
+  outline: none;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  height: 46px;
+  line-height: 46px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: blue;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgb(65 132 144 / 10%), 0 1px 3px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  transition: box-shadow 0.2s;
+  min-width: 150px;
+}
+
+.btn:focus-visible {
+	border: 1px solid #4c51f9;
+	outline: none;
+}
+.box_btn:hover {
+	transition: all 0.2s;
+   box-shadow: 0 2px 2px 1px  #cfcfcf, 0 2px 5px 0  #cfcfcf;
+	background-color: #f0ee9b;
+
+}
+.box_btn:active {
+	background-color: #4c51f9;
+   color:#fff;
+}
+
+.box_btn:first-child {
+  margin-right: 28px;
+}

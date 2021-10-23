@@ -1,0 +1,33 @@
+.navBox {
+  display: inline-flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: 52 px;
+  width: 100%;
+  background-color: #2372e9;
+
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%),
+    0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.navLink {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  /* color: #2a363b; */
+  color: white;
+  font-size: 18px;
+  text-shadow: 1px 4px 4px pink;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.navLink:hover {
+  color: #fcf95c;
+}
+
+.navLinkActive {
+  color: #fcf95c;
+}
