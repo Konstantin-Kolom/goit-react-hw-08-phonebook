@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { BsFillPersonPlusFill } from '../../node_modules/react-icons/bs';
+import { RiLockPasswordLine } from '../../node_modules/react-icons/ri';
+import { RiMailAddLine } from '../../node_modules/react-icons/ri';
 
 import s from './css/Register.module.css';
 
@@ -11,6 +13,17 @@ export default function RegisterViews() {
     const value = e.currentTarget.value;
     SetName(value);
   };
+
+  const hendleChangePassword = e => {
+    const value = e.currentTarget.value;
+    //  SetName(value);
+  };
+
+  const hendleChangeEmail = e => {
+    const value = e.currentTarget.value;
+    //  SetName(value);
+  };
+
   const hendleSubmit = e => {
     e.preventDefault();
   };
@@ -33,6 +46,42 @@ export default function RegisterViews() {
             placeholder="Enter your name"
             required
             onChange={hendleChangeName}
+          />
+        </label>
+
+        <label className="s.NameInputField">
+          <span className={s.iconForm}>
+            <RiMailAddLine />
+          </span>
+          <span className="{s.inputName}">Password:</span>
+          <input
+            className="s.ContactInputForm"
+            type="email"
+            name="email"
+            // value={email}
+            // pattern=".+@"
+            title="Three or more characters"
+            placeholder="Enter your password"
+            required
+            onChange={hendleChangeEmail}
+          />
+        </label>
+
+        <label className="s.NameInputField">
+          <span className={s.iconForm}>
+            <RiLockPasswordLine />
+          </span>
+          <span className="{s.inputName}">Password:</span>
+          <input
+            className="s.ContactInputForm"
+            type="password"
+            name="password"
+            // value={password}
+            pattern=".{3,}"
+            title="Enter your email"
+            placeholder="Enter your password"
+            required
+            onChange={hendleChangePassword}
           />
         </label>
 
