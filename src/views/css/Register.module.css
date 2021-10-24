@@ -2,14 +2,21 @@
   margin-top: 52px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 14px;
   display: flex;
   flex-direction: column;
+  max-width: 1200px;
+  /* text-align: center; */
+  align-items: center;
 }
 
 .ContactEntryForm {
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
+  /* max-width: 400px; */
   border: 1px solid #525f96;
   box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.2);
 }

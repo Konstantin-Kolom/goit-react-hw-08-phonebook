@@ -30,14 +30,14 @@ export default function RegisterViews() {
   return (
     <div className={s.box}>
       <h2>Please enter your details:</h2>
-      <form className="s.ContactEntryForm" onSubmit={hendleSubmit}>
-        <label className="s.NameInputField">
+      <form className={s.ContactEntryForm} onSubmit={hendleSubmit}>
+        <label className={s.NameInputField}>
           <span className={s.iconForm}>
             <BsFillPersonPlusFill />
           </span>
-          <span className="{s.inputName}">Name:</span>
+          <span className={s.inputName}>Name:</span>
           <input
-            className="s.ContactInputForm"
+            className={s.ContactInputForm}
             type="text"
             name="name"
             value={name}
@@ -49,13 +49,13 @@ export default function RegisterViews() {
           />
         </label>
 
-        <label className="s.NameInputField">
+        <label className={s.NameInputField}>
           <span className={s.iconForm}>
             <RiMailAddLine />
           </span>
-          <span className="{s.inputName}">Password:</span>
+          <span className={s.inputName}>Email:</span>
           <input
-            className="s.ContactInputForm"
+            className={s.ContactInputForm}
             type="email"
             name="email"
             // value={email}
@@ -67,13 +67,13 @@ export default function RegisterViews() {
           />
         </label>
 
-        <label className="s.NameInputField">
+        <label className={s.NameInputField}>
           <span className={s.iconForm}>
             <RiLockPasswordLine />
           </span>
-          <span className="{s.inputName}">Password:</span>
+          <span className={s.inputName}>Password:</span>
           <input
-            className="s.ContactInputForm"
+            className={s.ContactInputForm}
             type="password"
             name="password"
             // value={password}
