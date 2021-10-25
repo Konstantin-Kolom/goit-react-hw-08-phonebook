@@ -1,59 +1,61 @@
-// import { lazy } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
+import { useDispatch } from 'react-redux';
+
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 
+import authOperations from './redux/auth/authOperations';
 import { Navigation } from './components/Novigation/Novigation';
-// import UserMenu from './components/UserMenu/UserMenu';
-import HomePageViews from './views/HomePageViews';
-import RegisterViews from './views/RegisterViews';
-import LoginViews from './views/LoginViews';
 
-import Section from './components/Section/Section';
-import DataRecordForm from './components/DataRecordForm/DataRecordForm';
-import Contacts from './components/Contacts/Contacts';
-import FilterContact from './components/FilterContact/FilterContact';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+import PhoneBook from './components/Phonebook/Phonebook';
 
-// const HomePageViews = lazy(() =>
-//   import('./views/HomePageViews' /* webpackChunkName: "Home-views" */),
-// );
+const HomePageViews = lazy(() =>
+  import('./views/HomePageViews.jsx' /* webpackChunkName: "Home-views" */),
+);
+const RegisterViews = lazy(() =>
+  import('./views/RegisterViews.jsx' /* webpackChunkName: "Home-views" */),
+);
+const LoginViews = lazy(() =>
+  import('./views/LoginViews.jsx' /* webpackChunkName: "Home-views" */),
+);
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <header className="App-header">
         <Navigation />
-        {/* <UserMenu /> */}
       </header>
 
       <Switch>
-        <Route exact path="/">
-          <HomePageViews />
-        </Route>
+        <Suspense fallback={<p>Loding...</p>}>
+          <PublicRoute exact path="/">
+            <HomePageViews />
+          </PublicRoute>
 
-        <Route path="/register">
-          <RegisterViews />
-        </Route>
+          <PublicRoute path="/register" restricted>
+            <RegisterViews />
+          </PublicRoute>
 
-        <Route path="/login">
-          <LoginViews />
-        </Route>
+          <PublicRoute path="/login" restricted>
+            <LoginViews />
+          </PublicRoute>
 
-        <Route path="/contacts">
-          <Section title="Phonebook">
-            <div>
-              <Toaster position="top-right" reverseOrder={false} />
-            </div>
-            <DataRecordForm />
-            <h2>Contacts</h2>
-            <FilterContact />
-            <Contacts />
-          </Section>
-        </Route>
+          <PrivateRoute path="/contacts">
+            <PhoneBook />
+          </PrivateRoute>
 
-        <Route path="*">
-          <Redirect to="/" />
-          <HomePageViews />
-        </Route>
+          {/* <Route path="*">
+            <Redirect to="/" />
+            <HomePageViews />
+          </Route> */}
+        </Suspense>
       </Switch>
     </>
   );
