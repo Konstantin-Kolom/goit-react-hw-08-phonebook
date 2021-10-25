@@ -1,9 +1,12 @@
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import UserMenu from '../UserMenu/UserMenu';
 
+import UserMenu from '../UserMenu/UserMenu';
+import authSelectors from '../../redux/auth/authSelectors';
 import s from './Novigation.module.css';
 
 export const Navigation = () => {
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <nav className={s.navBox}>
       <div>
@@ -14,7 +17,7 @@ export const Navigation = () => {
           Phonebook
         </NavLink>
       </div>
-      <UserMenu />
+      {isLoggedIn && <UserMenu />}
     </nav>
   );
 };

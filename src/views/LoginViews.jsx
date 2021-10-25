@@ -1,26 +1,33 @@
 import { useState } from 'react';
-// import { BsFillPersonPlusFill } from '../../node_modules/react-icons/bs';
+import { useDispatch } from 'react-redux';
+
 import { RiLockPasswordLine } from '../../node_modules/react-icons/ri';
 import { RiMailAddLine } from '../../node_modules/react-icons/ri';
 
 import s from './css/Register.module.css';
+import authOperations from '../redux/auth/authOperations.js';
 
 export default function LoginViews() {
+  const dispatch = useDispatch();
   const [email, SetEmail] = useState('');
   const [password, SetPassword] = useState('');
 
-  const hendleChangeEmail = e => {
-    const value = e.currentTarget.value;
-    SetEmail(value);
-  };
-
-  const hendleChangePassword = e => {
-    const value = e.currentTarget.value;
-    SetPassword(value);
+  const hendleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'email':
+        return SetEmail(value);
+      case 'password':
+        return SetPassword(value);
+      default:
+        return;
+    }
   };
 
   const hendleSubmit = e => {
     e.preventDefault();
+    dispatch(authOperations.login({ email, password }));
+    SetEmail('');
+    SetPassword('');
   };
 
   return (
@@ -41,7 +48,7 @@ export default function LoginViews() {
             title="Three or more characters"
             placeholder="Enter your password"
             required
-            onChange={hendleChangeEmail}
+            onChange={hendleChange}
           />
         </label>
 
@@ -59,7 +66,7 @@ export default function LoginViews() {
             title="Enter your email"
             placeholder="Enter your password"
             required
-            onChange={hendleChangePassword}
+            onChange={hendleChange}
           />
         </label>
 

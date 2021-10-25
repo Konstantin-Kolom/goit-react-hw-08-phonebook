@@ -12,5 +12,22 @@ const register = createAsyncThunk('auth/register', async credentials => {
   }
 });
 
+const login = createAsyncThunk('auth/login', async credentials => {
+  try {
+    const { data } = await axios.post('/users/login', credentials);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+const logOut = createAsyncThunk('auth/logout', async () => {
+  try {
+    await axios.post('/users/logout');
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 // eslint-disable-next-line import/no-anonymous-default-export
-export default { register };
+export default { register, login, logOut };
