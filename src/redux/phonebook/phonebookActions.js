@@ -1,5 +1,4 @@
 import { createAction } from '@reduxjs/toolkit';
-// import shortid from 'shortid';
 
 const openBook = createAction('phonebook/open', data => {
   return {
@@ -10,7 +9,6 @@ const openBook = createAction('phonebook/open', data => {
 const addContact = createAction('phonebook/add', ({ name, number }) => {
   return {
     payload: {
-      // id: shortid.generate(name),
       name: name,
       number: number,
     },

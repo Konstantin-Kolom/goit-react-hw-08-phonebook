@@ -6,6 +6,7 @@ import { Navigation } from './components/Novigation/Novigation';
 // import UserMenu from './components/UserMenu/UserMenu';
 import HomePageViews from './views/HomePageViews';
 import RegisterViews from './views/RegisterViews';
+import LoginViews from './views/LoginViews';
 
 import Section from './components/Section/Section';
 import DataRecordForm from './components/DataRecordForm/DataRecordForm';
@@ -33,7 +34,9 @@ function App() {
           <RegisterViews />
         </Route>
 
-        {/* <Route path="/login"></Route> */}
+        <Route path="/login">
+          <LoginViews />
+        </Route>
 
         <Route path="/contacts">
           <Section title="Phonebook">
@@ -46,11 +49,11 @@ function App() {
             <Contacts />
           </Section>
         </Route>
-        {/* 
+
         <Route path="*">
           <Redirect to="/" />
           <HomePageViews />
-        </Route> */}
+        </Route>
       </Switch>
     </>
   );

@@ -1,32 +1,39 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { BsFillPersonPlusFill } from '../../node_modules/react-icons/bs';
 import { RiLockPasswordLine } from '../../node_modules/react-icons/ri';
 import { RiMailAddLine } from '../../node_modules/react-icons/ri';
 
 import s from './css/Register.module.css';
+import authOperations from '../redux/auth/authOperations';
 
 export default function RegisterViews() {
+  const dispatch = useDispatch();
   const [name, SetName] = useState('');
-  //   const [email, SetEmail] = useState('');
+  const [email, SetEmail] = useState('');
+  const [password, SetPassword] = useState('');
 
-  const hendleChangeName = e => {
-    const value = e.currentTarget.value;
-    SetName(value);
-  };
-
-  const hendleChangePassword = e => {
-    const value = e.currentTarget.value;
-    //  SetName(value);
-  };
-
-  const hendleChangeEmail = e => {
-    const value = e.currentTarget.value;
-    //  SetName(value);
+  const hendleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'name':
+        return SetName(value);
+      case 'email':
+        return SetEmail(value);
+      case 'password':
+        return SetPassword(value);
+      default:
+        return;
+    }
   };
 
   const hendleSubmit = e => {
     e.preventDefault();
+    dispatch(authOperations.register({ name, email, password }));
+    SetName('');
+    SetEmail('');
+    SetPassword('');
   };
+
   return (
     <div className={s.box}>
       <h2>Please enter your details:</h2>
@@ -45,7 +52,7 @@ export default function RegisterViews() {
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             placeholder="Enter your name"
             required
-            onChange={hendleChangeName}
+            onChange={hendleChange}
           />
         </label>
 
@@ -58,12 +65,12 @@ export default function RegisterViews() {
             className={s.ContactInputForm}
             type="email"
             name="email"
-            // value={email}
+            value={email}
             // pattern=".+@"
             title="Three or more characters"
             placeholder="Enter your password"
             required
-            onChange={hendleChangeEmail}
+            onChange={hendleChange}
           />
         </label>
 
@@ -76,17 +83,17 @@ export default function RegisterViews() {
             className={s.ContactInputForm}
             type="password"
             name="password"
-            // value={password}
+            value={password}
             pattern=".{3,}"
             title="Enter your email"
             placeholder="Enter your password"
             required
-            onChange={hendleChangePassword}
+            onChange={hendleChange}
           />
         </label>
 
         <button className={s.btnFormContact} type="submit">
-          Registe
+          Registration
         </button>
       </form>
     </div>
