@@ -1,6 +1,6 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import authOperations from './redux/auth/authOperations';
 import { Navigation } from './components/Novigation/Novigation';
@@ -51,10 +51,9 @@ function App() {
               <PhoneBook />
             </PrivateRoute>
 
-            {/* <Route path="*">
-            <Redirect to="/" />
-            <HomePageViews />
-          </Route> */}
+            <PublicRoute path="*">
+              <Redirect to="/" />
+            </PublicRoute>
           </Suspense>
         </Switch>
       )}

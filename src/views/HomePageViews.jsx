@@ -35,7 +35,6 @@ export default function HomePageViews() {
               Login
             </button>
           </Link>
-          ;
         </div>
       )}
 
