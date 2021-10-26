@@ -4,6 +4,9 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: linear-gradient(to right, #1e1d2740, #0e0e0f40),
+    url(./images/tmb_37576_3018.jpg);
+  background-size: cover; */
 }
 
 code {
@@ -12,12 +15,15 @@ code {
 
 h2 {
   margin: 0px;
-  color: #525f96;
+  /* color: #525f96; */
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 h1 {
   margin: 0px;
   padding: 0;
-  color: #525f96;
+  /* color: #525f96; */
+  color: white;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
-

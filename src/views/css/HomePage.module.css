@@ -62,18 +62,17 @@
 }
 
 .btn:focus-visible {
-	border: 1px solid #4c51f9;
-	outline: none;
+  border: 1px solid #4c51f9;
+  outline: none;
 }
 .box_btn:hover {
-	transition: all 0.2s;
-   box-shadow: 0 2px 2px 1px  #cfcfcf, 0 2px 5px 0  #cfcfcf;
-	background-color: #f0ee9b;
-
+  transition: all 0.2s;
+  box-shadow: 0 2px 2px 1px #cfcfcf, 0 2px 5px 0 #cfcfcf;
+  background-color: #f0ee9b;
 }
 .box_btn:active {
-	background-color: #4c51f9;
-   color:#fff;
+  background-color: #4c51f9;
+  color: #fff;
 }
 
 .box_btn:first-child {
