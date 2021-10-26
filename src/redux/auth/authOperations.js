@@ -29,7 +29,6 @@ const login = createAsyncThunk('auth/login', async (credentials, { rejectWithVal
     token.set(data.token);
     return data;
   } catch (error) {
-    //   alert(`!!!`);
     return rejectWithValue(error.response.data);
   }
 });
