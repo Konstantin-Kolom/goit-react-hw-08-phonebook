@@ -87,3 +87,8 @@
   min-width: 70px;
   margin-right: 8px;
 }
+
+.titleError {
+  margin-bottom: 16px;
+  text-align: center;
+}

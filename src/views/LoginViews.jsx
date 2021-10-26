@@ -1,16 +1,18 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { RiLockPasswordLine } from '../../node_modules/react-icons/ri';
 import { RiMailAddLine } from '../../node_modules/react-icons/ri';
 
 import s from './css/Register.module.css';
 import authOperations from '../redux/auth/authOperations.js';
+import authSelectors from '../redux/auth/authSelectors.js';
 
 export default function LoginViews() {
   const dispatch = useDispatch();
   const [email, SetEmail] = useState('');
   const [password, SetPassword] = useState('');
+  const isError = useSelector(authSelectors.getIsError);
 
   const hendleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -73,6 +75,18 @@ export default function LoginViews() {
         <button className={s.btnFormContact} type="submit">
           Login
         </button>
+        {isError && (
+          <>
+            <h2 className={s.titleError}>
+              Email or password entered incorrectly! <br /> Please try again. Or register.
+            </h2>
+            <Link to="/register">
+              <button type="button" className={s.btnFormContact}>
+                Registration
+              </button>
+            </Link>
+          </>
+        )}
       </form>
     </div>
   );

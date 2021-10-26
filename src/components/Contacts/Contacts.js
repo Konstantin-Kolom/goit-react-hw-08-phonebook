@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 
 import phoneAticons from '../../redux/phonebook/phonebookActions';
 import { MdDeleteForever } from '../../../node_modules/react-icons/md';
+// import { GrUpdate } from '../../../node_modules/react-icons/gr';
 import {
   useGetContactsQuery,
   useDeleteContactMutation,
@@ -62,19 +63,35 @@ export default function Contacts() {
             <li className={s.ContactsItem} key={id} id={id}>
               <p>{name}</p>
               <p>{number}</p>
-              <button
-                className={s.BtnDeletContact}
-                type="button"
-                onClick={() => hendleClickDelet(id)}
-              >
-                <span className={s.BtnDeletContactSvg}>
-                  <MdDeleteForever />
-                </span>
-                <span>
-                  {/* {isDeleting ? 'Delete...' : 'Delete'} */}
-                  Delete
-                </span>
-              </button>
+              <div className={s.box_button}>
+                {/* <button
+                  className={s.BtnDeletContact}
+                  type="button"
+                  onClick={() => hendleClickDelet(id)}
+                >
+                  <span className={s.BtnDeletContactSvg}>
+                    <GrUpdate />
+                  </span>
+                  <span>
+                    {/* {isDeleting ? 'Delete...' : 'Delete'} */}
+                {/* Update  */}
+                {/* </span>
+                </button> */}
+
+                <button
+                  className={s.BtnDeletContact}
+                  type="button"
+                  onClick={() => hendleClickDelet(id)}
+                >
+                  <span className={s.BtnDeletContactSvg}>
+                    <MdDeleteForever />
+                  </span>
+                  <span>
+                    {/* {isDeleting ? 'Delete...' : 'Delete'} */}
+                    Delete
+                  </span>
+                </button>
+              </div>
             </li>
           ))}
         </ul>
