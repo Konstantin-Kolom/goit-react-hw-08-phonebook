@@ -68,7 +68,7 @@ export default function RegisterViews() {
             value={email}
             // pattern=".+@"
             title="Three or more characters"
-            placeholder="Enter your password"
+            placeholder="Enter your email"
             required
             onChange={hendleChange}
           />
