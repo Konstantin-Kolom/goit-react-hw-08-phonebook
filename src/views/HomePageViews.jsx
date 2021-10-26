@@ -14,7 +14,7 @@ export default function HomePageViews() {
     <section className={s.section}>
       <div>
         <h1 className={s.title}>Welcome!</h1>
-        <p className={s.text}>Service - You phonebook</p>
+        <p className={s.text}>Service - Your phonebook</p>
       </div>
       {userLogginIn && (
         <div className={s.box}>
