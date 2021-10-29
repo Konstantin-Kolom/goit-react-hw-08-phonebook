@@ -9,18 +9,18 @@ import authOperations from '../redux/auth/authOperations';
 
 export default function RegisterViews() {
   const dispatch = useDispatch();
-  const [name, SetName] = useState('');
-  const [email, SetEmail] = useState('');
-  const [password, SetPassword] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const hendleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
-        return SetName(value);
+        return setName(value);
       case 'email':
-        return SetEmail(value);
+        return setEmail(value);
       case 'password':
-        return SetPassword(value);
+        return setPassword(value);
       default:
         return;
     }
@@ -29,9 +29,9 @@ export default function RegisterViews() {
   const hendleSubmit = e => {
     e.preventDefault();
     dispatch(authOperations.register({ name, email, password }));
-    SetName('');
-    SetEmail('');
-    SetPassword('');
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
